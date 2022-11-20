@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Slider from './components/Slider.js'
 import TextField from './components/TextField.js'
-import Options from './components/Options.js'
+import Transformers from "./Transformers.js"
 
 function App() {
   /* The right-hand column is optional and only displayed on big screens
@@ -10,6 +10,7 @@ function App() {
   app-critical.
   */
 
+  /*
   const sliderList = [
     {
       text: "add prefix / suffix",
@@ -32,6 +33,9 @@ function App() {
       key: "id4",
     },
   ]
+  */
+
+  const sliderList = Transformers
 
   const sliderClick = (index) => {
     console.log("clicked index button:", index)
@@ -70,7 +74,6 @@ function App() {
 
           <div className="grow p-4">
             <Slider list={sliderList} click={sliderClick}></Slider>
-            <Options list={optionsList}></Options>
             <TextField></TextField>
           </div>
           

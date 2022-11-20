@@ -9,7 +9,10 @@ import Utils from "./Utils.js"
 
 const Transformers = [
 
+
+
   {
+    key: "removeDuplicateLines",
     text: `Remove duplicate lines`,
     descr: `This removes duplicate lines from your text. For example, if you have
     the line "John Mayer" twice in your text, the second line will be removed.
@@ -18,7 +21,7 @@ const Transformers = [
       {
         text: "Match all cases",
         type: "checkbox",
-        descr: `Check this if you want to not only match "abcd", but also "ABCD", "aBcD", etc.`,
+        descr: `Check this if you want to not only match "abcd", but also "ABCD", "aBcD", etc. (Recommended)`,
         key: "caseSensitive",
         checked: true,
       },
@@ -26,7 +29,7 @@ const Transformers = [
       {
         text: "Ignore superfluous whitespace",
         type: "checkbox",
-        descr: `Check this if you want to treat "  some   words " and "some words" as duplicate lines.`,
+        descr: `Check this if you want to treat \u00A0\u00A0\u00A0"\u00A0\u00A0some\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0words\u00A0\u00A0"\u00A0\u00A0\u00A0 and\u00A0\u00A0\u00A0"some words" as duplicate lines. (Recommended)`,
         key: "ignoreWhiteSpace",
         checked: true,
       },
@@ -39,6 +42,25 @@ const Transformers = [
       return {
         result: newStr,
       }
+    },
+  },
+
+
+  {
+    key: "test",
+    text: `Just a test`,
+    descr: `Some description ....`,
+    slots: [
+      {
+        text: "Match all cases",
+        type: "checkbox",
+        descr: `Check this if you want to not only match "abcd", but also "ABCD", "aBcD", etc.`,
+        key: "caseSensitive",
+        checked: true,
+      },
+    ],
+    do: (str, data) => {
+      return str.toUpperCase()
     },
   },
 

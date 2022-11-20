@@ -6,11 +6,12 @@ Basically a list of fancy styled buttons.
 
 
 import { useState } from 'react';
-
+import Options from './Options.js'
+import ActionButton from './ActionButton.js'
 
 function Slider(props) {
   /*
-    props:
+    #######
     props.list: an array.
       must contain objects of the form:
       {
@@ -18,11 +19,17 @@ function Slider(props) {
         tooltip: string: tooltip text
         key: string: unique id
       }
+    #######
     props.click: function: gets called whenever a button is clicked,
       passes index of the button (index inside the props.list array)
+    #######
+    
   */
+  function clickGoButton() {
+
+  }
   
-  const [state, setState] = useState('')
+  const [state, setState] = useState(0) //0 = select first entry on app start
 
   function clickButton(index) {
     props.click(index)
@@ -40,9 +47,23 @@ function Slider(props) {
     }
   )
 
+  const selectedItem = props.list[state]
+
   return (
-    <div className="p-1 bg-gray-200 w-[100%] max-h-40 overflow-auto">
-        {listItems}
+    <div>
+      <div className="p-1 bg-gray-200 w-[100%] max-h-40 overflow-auto">
+          {listItems}
+      </div>
+      <div className="inline-block mt-2">
+        <ActionButton click={() => clickGoButton()} text={"Transform text!"} ></ActionButton>
+      </div>
+      <div className="bg-gray-50 p-3 m-1 mt-3 rounded-md
+        shadow-sky-200 shadow-md border-sky-200 border-2 text-gray-800">
+        {selectedItem.descr}
+      </div>      
+      <div className="inline-block">
+        <Options list={selectedItem.slots}></Options>
+      </div>
     </div>
   )
 

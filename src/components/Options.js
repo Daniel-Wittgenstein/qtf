@@ -28,7 +28,7 @@ function Options(props) {
         )
       }
       return (
-        <div className="inline-block" key={item.key}>
+        <div className="inline-block mr-6" key={item.key}>
           {optionsEntry}
         </div>
       )

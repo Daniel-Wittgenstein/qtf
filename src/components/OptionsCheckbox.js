@@ -3,9 +3,15 @@
 
 function OptionsCheckbox(props) {
   return (
-    <div className = "inline-block flex items-center">
-      <div className="border-0 mr-2 ">{props.text}:</div>
-      <div className="border-0 align-baseline mt-1"><input className="" type="checkbox"></input></div>
+    <div className = "flex flex-col">
+      <div className="">
+        <div className="border-0 mr-2 inline-block">{props.text}:</div>
+        <div className="border-0 align-baseline mt-1 inline-block
+        "><input className="" type="checkbox"></input></div>
+      </div>
+      <div className="text-sm text-gray-700">
+        {props.descr}
+      </div>
     </div>
   )
 
