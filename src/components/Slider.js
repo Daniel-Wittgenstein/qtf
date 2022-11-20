@@ -5,6 +5,9 @@ Basically a list of fancy styled buttons.
 */
 
 
+import { useState } from 'react';
+
+
 function Slider(props) {
   /*
     props:
@@ -18,15 +21,23 @@ function Slider(props) {
     props.click: function: gets called whenever a button is clicked,
       passes index of the button (index inside the props.list array)
   */
+  
+  const [state, setState] = useState('')
 
   function clickButton(index) {
     props.click(index)
+    setState(index)
   }
 
-  const listItems = props.list.map( (item, index) =>
-    <button
-      className="p-3 bg-white text-sky-800 m-1 hover:bg-gray-700 hover:text-gray-50"
-      title={item.tooltip} key={item.key} onClick={() => clickButton(index)}>{item.text}</button>
+  const standardStyle = `p-3 bg-white   text-sky-800 m-1 hover:bg-gray-700 hover:text-gray-50`
+  const selectedStyle = `p-3 bg-sky-600 text-white   m-1 hover:bg-sky-800 hover: text-gray-100`
+
+  const listItems = props.list.map( (item, index) => {
+      const cl =  index === state ? " " + selectedStyle : standardStyle
+      return (<button
+        className={cl}
+        title={item.tooltip} key={item.key} onClick={() => clickButton(index)}>{item.text}</button>)
+    }
   )
 
   return (
