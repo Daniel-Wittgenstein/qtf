@@ -58,6 +58,13 @@ const Transformers = [
         key: "caseSensitive",
         checked: true,
       },
+      {
+        text: "some text",
+        type: "input",
+        descr: `Describe this input field`,
+        key: "someIdKey",
+        checked: false,
+      },
     ],
     do: (str, data) => {
       return str.toUpperCase()

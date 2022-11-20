@@ -3,11 +3,13 @@
 
 function OptionsInput(props) {
   return (
-    <div className = "flex flex-col">
+    <div className = "flex flex-col mt-2">
       <div className="">
         <div className="border-0 mr-2 inline-block">{props.text}:</div>
         <div className="border-0 align-baseline mt-1 inline-block
-        "><input className="" type="textarea"></input></div>
+        "><input className="
+          border-sky-800 border-2 rounded-sm
+        " type="textarea"></input></div>
       </div>
       <div className="text-sm text-gray-700">
         {props.descr}
