@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Slider from './components/Slider.js'
 import TextField from './components/TextField.js'
+import Options from './components/Options.js'
 
 function App() {
   /* The right-hand column is optional and only displayed on big screens
@@ -36,6 +37,27 @@ function App() {
     console.log("clicked index button:", index)
   }
 
+  const optionsList = [
+    {
+      type: "input",
+      text: "1234567",
+      key: "id1",
+      descr: `This option does rtoo.`
+    },
+    {
+      type: "input",
+      text: "abcd1234567",
+      key: "id2",
+      descr: `This option does someting.`
+    },
+    {
+      type: "checkbox",
+      text: "121221",
+      key: "id3",
+      descr: `This option does someting.`
+    },
+  ]
+
   return (
     <div className="h-[100vh]">
       <div className="flex flex-col h-[100%]">
@@ -48,6 +70,7 @@ function App() {
 
           <div className="grow p-4">
             <Slider list={sliderList} click={sliderClick}></Slider>
+            <Options list={optionsList}></Options>
             <TextField></TextField>
           </div>
           
