@@ -64,13 +64,16 @@ function Slider(props) {
     props.click(index)
     setState(index)
     const selectedItem = props.list[index]
-    const text1 = selectedItem.example || ""
+    const separator = "***"
+    const textTotal = selectedItem.example || separator
+    const parts = textTotal.split(separator)
     const title = selectedItem.text
-    const text2 = doTextTransformation(text1, selectedItem).result
+    //const text2 = doTextTransformation(text1, selectedItem).result
+
     dispatch( dataSlice.action.setSideBar({
       title,
-      text1,
-      text2,
+      text1: parts[0],
+      text2: parts[1],
     }) )
   }
 

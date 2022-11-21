@@ -18,7 +18,11 @@ const Transformers = [
 Led Zeppelin
 Led Zeppelin
 Beatles
-Rolling Stones`,
+Rolling Stones
+***Rolling Stones
+Led Zeppelin
+Beatles
+`,
     slots: [
       {
         text: "Match all cases",
