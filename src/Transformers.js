@@ -13,9 +13,7 @@ const Transformers = [
   {
     key: "removeDuplicateLines",
     text: `Remove duplicate lines`,
-    descr: `This removes duplicate lines from your text. For example, if you have
-    the line "Richard James" twice in your text, the second line will be removed.
-    The lines don't have to be consecutive.`,
+    descr: `This removes duplicate lines from your text.`,
     example: `Rolling Stones
 Led Zeppelin
 Led Zeppelin
@@ -27,7 +25,7 @@ Rolling Stones`,
         type: "checkbox",
         descr: `Check this if you want to not only match "abcd", but also "ABCD", "aBcD", etc. (Recommended)`,
         key: "caseSensitive",
-        checked: false,
+        checked: true,
       },
 
       {
@@ -40,7 +38,7 @@ Rolling Stones`,
     ],
     do: (str, data) => {
       const lines = Utils.stringToLines(str)
-      const result = Utils.removeDuplicateLines(lines, data.caseInsensitive, data.ignoreWhiteSpace,
+      const result = Utils.removeDuplicateLines(lines, data.caseSensitive, data.ignoreWhiteSpace,
         data.ignoreWhiteSpace)
       const newLines = result.lines
       const newStr = Utils.linesToString(newLines, "\n")

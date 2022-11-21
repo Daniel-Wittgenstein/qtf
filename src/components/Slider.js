@@ -102,14 +102,17 @@ function Slider(props) {
       <div className="p-1 bg-gray-200 w-[100%] max-h-40 overflow-auto">
           {listItems}
       </div>
-      <div className="inline-block mt-2">
-        <ActionButton click={() => clickGoButton()} text={"Transform text!"} ></ActionButton>
-        {undoButton}
-      </div>
+
       <div className="bg-gray-50 p-3 m-1 mt-3 rounded-md
         shadow-sky-200 shadow-md border-sky-200 border-2 text-gray-800">
         {selectedItem.descr}
-      </div>      
+      </div>  
+      
+      <div className="inline-block mt-2">
+        <ActionButton click={() => clickGoButton()} text={"Transform text!"} ></ActionButton>
+        {undoButton}
+      </div>    
+      
       <div className="inline-block">
         <Options list={selectedItem.slots} entryId={selectedItem.key}></Options>
       </div>
