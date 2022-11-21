@@ -19,14 +19,14 @@ function Options(props) {
   
   const listItems = props.list.map( (item, index) => {
 
-      const optionEntry = (
+    const optionEntry = (
         <OptionEntry text={item.text} descr={item.descr}
           entryId={props.entryId} selfId={item.key} type={item.type}
           ></OptionEntry>
       )
 
       return (
-        <div className="inline-block mr-6" key={item.key}>
+        <div className="block mr-6" key={item.key}>
           {optionEntry}
         </div>
       )

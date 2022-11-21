@@ -66,7 +66,7 @@ function OptionEntry(props) {
   }
   
   return (
-    <div className = "flex flex-col">
+    <div className = "flex flex-col block">
       <div className="">
         <div className="border-0 mr-2 inline-block">{props.text}:</div>
         <div className="border-0 align-baseline mt-1 inline-block

@@ -116,7 +116,7 @@ function Slider(props) {
         {undoButton}
       </div>    
       
-      <div className="inline-block">
+      <div className="block">
         <Options list={selectedItem.slots} entryId={selectedItem.key}></Options>
       </div>
     </div>
