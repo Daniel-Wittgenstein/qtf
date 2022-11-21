@@ -9,6 +9,12 @@ import { useState } from 'react';
 import Options from './Options.js'
 import ActionButton from './ActionButton.js'
 
+
+import {useDispatch} from 'react-redux'
+import dataSlice from "../app/reducers/dataslice"
+
+import { useSelector } from 'react-redux'
+
 function Slider(props) {
   /*
     #######
@@ -26,8 +32,17 @@ function Slider(props) {
     #######
     
   */
-  function clickGoButton() {
 
+
+  const appState = useSelector(state => state.main)
+
+
+
+  const dispatch = useDispatch()
+
+  function clickGoButton() {
+    //test dispatch:
+    dispatch( dataSlice.action.testFunction({newValue: "new value"}) )
   }
   
   const [state, setState] = useState(0) //0 = select first entry on app start
@@ -56,6 +71,7 @@ function Slider(props) {
           {listItems}
       </div>
       <div className="inline-block mt-2">
+        {appState.testField}
         <ActionButton click={() => clickGoButton()} text={"Transform text!"} ></ActionButton>
       </div>
       <div className="bg-gray-50 p-3 m-1 mt-3 rounded-md

@@ -14,7 +14,7 @@ function ActionButton(props) {
   return (
     <button
       className = {style}
-      onClick = {props.onClick}
+      onClick = {props.click}
     >
       {props.text}
     </button>
