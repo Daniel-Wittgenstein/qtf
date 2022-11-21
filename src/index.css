@@ -45,3 +45,10 @@ code {
 .custom-class-main-wrapper {
   margin:auto;
 }
+
+.limit-animation-count {
+  animation-iteration-count: 20;
+  animation-fill-mode:forwards;
+}
+
+
