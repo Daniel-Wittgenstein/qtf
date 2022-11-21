@@ -7,12 +7,14 @@ import Transformers from "../../Transformers.js"
 // eslint-disable-next-line no-unused-vars
 const lodash = require('lodash')
 
+const demoText = `Welcome to Quick Text Fixer! Enter your text here!`
+
 //SETUP INITIAL APP STATE:
 const appState = {
   appName: "Quick Text Fixer",
   testField: "1234567 initial",
   options: {},
-
+  inputField: demoText,
 }
 
 appState.options = setOptionsInitialState()
@@ -57,7 +59,12 @@ const theReducers = {
     */
     const p = action.payload
     state.options[p.entryId][p.optionId]= p.newValue
-  }
+  },
+
+  setInputFieldValue(state, action) {
+    const p = action.payload
+    state.inputField = action.newValue
+  },
   
 }
 
