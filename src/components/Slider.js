@@ -1,8 +1,6 @@
 
 
-/* Element where you select the text-transformation to apply.
-Basically a list of fancy styled buttons.
-*/
+/* Main Element. */
 
 
 import { useState } from 'react';
@@ -40,8 +38,6 @@ function Slider(props) {
   const dispatch = useDispatch()
 
   function clickGoButton() {
-    //test dispatch: dispatch( dataSlice.action.testFunction({newValue: "new value"}) )
-    //dispatch: dispatch( dataSlice.action.testFunction({newValue: "new value"}) )
     const text = appState.inputField
     //selected transformer
     const selectedTransformer = Transformers[state]
@@ -54,6 +50,10 @@ function Slider(props) {
     }))
   }
   
+  function clickUndoButton() {
+    dispatch( dataSlice.action.undo())
+  }
+
   const [state, setState] = useState(0) //0 = select first entry on app start
 
   function clickButton(index) {
@@ -74,6 +74,10 @@ function Slider(props) {
 
   const selectedItem = props.list[state]
 
+  const undoEnabled = appState.undoPossible
+
+  const undoButton = undoEnabled? (<ActionButton click={() => clickUndoButton()} text={"undo"} ></ActionButton>) : null
+
   return (
     <div>
       <div className="p-1 bg-gray-200 w-[100%] max-h-40 overflow-auto">
@@ -81,6 +85,7 @@ function Slider(props) {
       </div>
       <div className="inline-block mt-2">
         <ActionButton click={() => clickGoButton()} text={"Transform text!"} ></ActionButton>
+        {undoButton}
       </div>
       <div className="bg-gray-50 p-3 m-1 mt-3 rounded-md
         shadow-sky-200 shadow-md border-sky-200 border-2 text-gray-800">

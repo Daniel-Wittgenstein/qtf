@@ -214,7 +214,6 @@ const Utils = {
       removed: [],
     }
     lines = lines.filter( (line, index) => {
-      console.log(hash, line)
       if (caseInsensitive) {
         line = line.toLowerCase()
       }

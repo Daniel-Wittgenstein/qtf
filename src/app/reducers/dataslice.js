@@ -10,12 +10,18 @@ const lodash = require('lodash')
 const demoText = `Welcome to Quick Text Fixer!
 Enter your text here!`
 
+
+const appSettings = {
+  maxUndoStates: 100,
+}
+
 //SETUP INITIAL APP STATE:
 const appState = {
   appName: "Quick Text Fixer",
   testField: "1234567 initial",
   options: {},
   inputField: demoText,
+  undoPossible: false,
 }
 
 appState.options = setOptionsInitialState()
@@ -44,6 +50,8 @@ function setOptionsInitialState() {
 }
 
 
+const undoStates = []
+
 //DEFINE THE REDUCERS:
 const theReducers = {
 
@@ -64,7 +72,24 @@ const theReducers = {
 
   setInputFieldValue(state, action) {
     const p = action.payload
+    undoStates.push({
+      inputField: state.inputField,
+    })
+    if (undoStates.length > appSettings.maxUndoStates) {
+      undoStates.shift() //remove first entry
+    }
     state.inputField = p.newValue
+    state.undoPossible = true
+  },
+
+  undo(state, action) {
+    const lastState = undoStates[undoStates.length - 1]
+    if (!lastState) {
+      return
+    }
+    state.inputField = lastState.inputField
+    undoStates.pop() //remove last entry
+    if (undoStates.length === 0) state.undoPossible = false
   },
   
 }
