@@ -16,6 +16,11 @@ const Transformers = [
     descr: `This removes duplicate lines from your text. For example, if you have
     the line "Richard James" twice in your text, the second line will be removed.
     The lines don't have to be consecutive.`,
+    example: `Rolling Stones
+Led Zeppelin
+Led Zeppelin
+Beatles
+Rolling Stones`,
     slots: [
       {
         text: "Match all cases",
@@ -66,10 +71,11 @@ const Transformers = [
       },
     ],
     do: (str, data) => {
-      return str.toUpperCase()
+      return {
+        result: str.toUpperCase()
+      }
     },
   },
-
 
 
 ]

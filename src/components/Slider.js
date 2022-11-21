@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Options from './Options.js'
 import ActionButton from './ActionButton.js'
 
+import { useEffect } from "react";
 
 import {useDispatch} from 'react-redux'
 import dataSlice from "../app/reducers/dataslice"
@@ -37,14 +38,17 @@ function Slider(props) {
 
   const dispatch = useDispatch()
 
+  function doTextTransformation(text, transformer) {
+    const optionDataObj = appState.options[transformer.key]
+    const result = transformer.do(text, optionDataObj)
+    if (!result) throw new Error(`${transformer.key}: do function did not return a result`)
+    return result
+  }
+
   function clickGoButton() {
     const text = appState.inputField
-    //selected transformer
     const selectedTransformer = Transformers[state]
-    const func = selectedTransformer.do
-    const optionDataObj = appState.options[selectedTransformer.key]
-    const result = func(text, optionDataObj)
-    if (!result || !result.result) throw new Error(`${selectedTransformer.key}: do function did not return a result`)
+    const result = doTextTransformation(text, selectedTransformer)
     dispatch( dataSlice.action.setInputFieldValue({
       newValue: result.result,
     }))
@@ -59,6 +63,15 @@ function Slider(props) {
   function clickButton(index) {
     props.click(index)
     setState(index)
+    const selectedItem = props.list[index]
+    const text1 = selectedItem.example || ""
+    const title = selectedItem.text
+    const text2 = doTextTransformation(text1, selectedItem).result
+    dispatch( dataSlice.action.setSideBar({
+      title,
+      text1,
+      text2,
+    }) )
   }
 
   const standardStyle = `p-3 bg-white   text-sky-800 m-1 hover:bg-gray-700 hover:text-gray-50`
@@ -77,6 +90,12 @@ function Slider(props) {
   const undoEnabled = appState.undoPossible
 
   const undoButton = undoEnabled? (<ActionButton click={() => clickUndoButton()} text={"undo"} ></ActionButton>) : null
+
+
+  //call only once on mount:
+  useEffect(() => {
+    clickButton(0)
+  }, [])
 
   return (
     <div>

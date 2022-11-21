@@ -16,3 +16,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.display-linebreak {
+  white-space: pre-line;
+}
+
+
+.custom-class-main-column {
+  width: 66%;
+}
+
+.custom-class-side-column {
+  width: 33%;
+}
+
+
+/* hide optional side column on small screens: */
+@media only screen and (max-width: 1020px) {
+  .custom-class-main-column {
+    width: 100%;
+  }
+  
+  .custom-class-side-column {
+    display: none;
+  }
+}
+
+.custom-class-main-wrapper {
+  margin:auto;
+}

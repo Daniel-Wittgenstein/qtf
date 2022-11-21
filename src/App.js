@@ -3,6 +3,7 @@ import './App.css';
 import Slider from './components/Slider.js'
 import TextField from './components/TextField.js'
 import Transformers from "./Transformers.js"
+import SideBar from "./components/SideBar.js"
 
 function App() {
   /* The right-hand column is optional and only displayed on big screens
@@ -38,7 +39,7 @@ function App() {
   const sliderList = Transformers
 
   const sliderClick = (index) => {
-    console.log("clicked index button:", index)
+    //console.log("clicked index button:", index)
   }
 
   const optionsList = [
@@ -64,7 +65,7 @@ function App() {
 
   return (
     <div className="h-[100vh]">
-      <div className="flex flex-col h-[100%]">
+      <div className="flex flex-col h-[100%] max-w-[1600px] custom-class-main-wrapper">
 
         <div className="bg-sky-400 text-white font-bold p-4 text-left">
           QUICK TEXT FIXER
@@ -72,13 +73,13 @@ function App() {
 
         <div className="flex justify-between grow">
 
-          <div className="grow p-4">
+          <div className="p-4 custom-class-main-column">
             <Slider list={sliderList} click={sliderClick}></Slider>
             <TextField></TextField>
           </div>
           
-          <div className="bg-white hidden lg:block max-w-[33%] p-4">
-            optional column - only on big screens etc. etc. etc. etc. etc. etc. etc. etc. etc. etc. etc. etc.
+          <div className="bg-white p-4 custom-class-side-column">
+            <SideBar></SideBar>
           </div>
             
         </div>

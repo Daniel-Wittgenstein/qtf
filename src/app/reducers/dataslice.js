@@ -12,7 +12,7 @@ Enter your text here!`
 
 
 const appSettings = {
-  maxUndoStates: 100,
+  maxUndoStates: 10,
 }
 
 //SETUP INITIAL APP STATE:
@@ -22,6 +22,7 @@ const appState = {
   options: {},
   inputField: demoText,
   undoPossible: false,
+  sideBar: {},
 }
 
 appState.options = setOptionsInitialState()
@@ -91,6 +92,15 @@ const theReducers = {
     undoStates.pop() //remove last entry
     if (undoStates.length === 0) state.undoPossible = false
   },
+
+  setSideBar(state, action) {
+    const p = action.payload
+    state.sideBar = {
+      title: p.title,
+      text1: p.text1,
+      text2: p.text2,
+    }
+  }
   
 }
 
