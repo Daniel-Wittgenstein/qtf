@@ -1,7 +1,5 @@
 
-import OptionsInput from './OptionsInput.js'
-import OptionsCheckbox from './OptionsCheckbox.js'
-
+import OptionEntry from './OptionEntry.js'
 
 function Options(props) {
   /*
@@ -20,23 +18,16 @@ function Options(props) {
   */
   
   const listItems = props.list.map( (item, index) => {
-      let optionsEntry
-      if (item.type === "input") {
-        optionsEntry = (
-          <OptionsInput text={item.text} descr={item.descr}
-            entryId={props.entryId} selfId={item.key}
-            ></OptionsInput>
-        )
-      } else if (item.type === "checkbox") {
-        optionsEntry = (
-          <OptionsCheckbox text={item.text} descr={item.descr}
-            entryId={props.entryId} selfId={item.key}           
-            ></OptionsCheckbox>
-        )
-      }
+
+      const optionEntry = (
+        <OptionEntry text={item.text} descr={item.descr}
+          entryId={props.entryId} selfId={item.key} type={item.type}
+          ></OptionEntry>
+      )
+
       return (
         <div className="inline-block mr-6" key={item.key}>
-          {optionsEntry}
+          {optionEntry}
         </div>
       )
     }
