@@ -28,11 +28,11 @@ function setOptionsInitialState() {
     const option = {}
     options[transformer.key] = option
     for (const slot of transformer.slots) {
-      const data = {}
+      let data
       if (slot.type === "checkbox") {
-        data.checked = slot.checked
+        data = slot.checked
       } else if (slot.type === "input") {
-        data.value = ""
+        data = ""
       }
       option[slot.key] = data
     }
@@ -47,8 +47,17 @@ const theReducers = {
   testFunction(state, action) {
     const p = action.payload
     state.testField = p.newValue
-    console.log(state.testField)
   },
+
+  setOptionState(state, action) {
+    /*
+      entryId: string
+      optionId: string
+      newValue: boolean or string (bool for checkboxes, string for text inputs)
+    */
+    const p = action.payload
+    state.options[p.entryId][p.optionId]= p.newValue
+  }
   
 }
 

@@ -36,8 +36,6 @@ function Slider(props) {
 
   const appState = useSelector(state => state.main)
 
-
-
   const dispatch = useDispatch()
 
   function clickGoButton() {
@@ -79,7 +77,7 @@ function Slider(props) {
         {selectedItem.descr}
       </div>      
       <div className="inline-block">
-        <Options list={selectedItem.slots}></Options>
+        <Options list={selectedItem.slots} entryId={selectedItem.key}></Options>
       </div>
     </div>
   )

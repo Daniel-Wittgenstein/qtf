@@ -13,24 +13,25 @@ function Options(props) {
       checked: boolean (only for checkbox) -> whether it should be checked at app start,
         after that the state is handled by this component
       descr: string: description
-      key: unique id
+      key: unique id (id identifies option inside appState)
     }
-  */
 
-  function onCheckboxChange(item, index) {
-    console.log(item, index)
-  }
+    props.entryId: string: id of currently selected slider entry (id of text transformation effect)
+  */
   
   const listItems = props.list.map( (item, index) => {
       let optionsEntry
       if (item.type === "input") {
         optionsEntry = (
-          <OptionsInput text={item.text} descr={item.descr} value={item.value}></OptionsInput>
+          <OptionsInput text={item.text} descr={item.descr}
+            entryId={props.entryId} selfId={item.key}
+            ></OptionsInput>
         )
       } else if (item.type === "checkbox") {
         optionsEntry = (
-          <OptionsCheckbox text={item.text} descr={item.descr} checked={item.checked}
-            onChangeCallback={ () => onCheckboxChange(item, index)}></OptionsCheckbox>
+          <OptionsCheckbox text={item.text} descr={item.descr}
+            entryId={props.entryId} selfId={item.key}           
+            ></OptionsCheckbox>
         )
       }
       return (

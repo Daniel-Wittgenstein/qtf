@@ -2,6 +2,13 @@
 
 
 function OptionsInput(props) {
+  /* 
+    props.text
+    props.descr
+    props.entryId (id of selected over-action)
+  */
+
+
   return (
     <div className = "flex flex-col mt-2">
       <div className="">

@@ -22,7 +22,7 @@ const Transformers = [
         type: "checkbox",
         descr: `Check this if you want to not only match "abcd", but also "ABCD", "aBcD", etc. (Recommended)`,
         key: "caseSensitive",
-        checked: true,
+        checked: false,
       },
 
       {
