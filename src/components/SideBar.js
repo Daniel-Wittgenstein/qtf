@@ -1,19 +1,25 @@
 
 import { useSelector } from 'react-redux'
 
+import arrow from '../assets/arrow.png'
 
 function SideBar(props) {
   const appState = useSelector(state => state.main)
     
+  const boxStyle = `shadow-lg border-4 p-2 rounded-md`
+
   return (
     <>
-    <div className="">
-      {appState.sideBar.title}
+    <div className="mb-2 font-bold text-gray-600">
+      {appState.sideBar.title}:
     </div>
-    <div className="display-linebreak mb-8">
+    <div className={"display-linebreak mb-4 " + boxStyle}>
        {appState.sideBar.text1}
     </div>
-    <div className="display-linebreak">
+    <div className="mb-4 flex justify-center">
+      <img className={"w-10 "+ boxStyle} src={arrow} alt="Arrow" />
+    </div>
+    <div className={"display-linebreak " + boxStyle}>
       {appState.sideBar.text2}
     </div>
     </>
