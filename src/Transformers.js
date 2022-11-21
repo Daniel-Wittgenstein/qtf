@@ -1,6 +1,7 @@
 
 /* 
   Text Effects definitions.
+  Immutable data. Should never be changed.
 
 */
 
@@ -9,13 +10,11 @@ import Utils from "./Utils.js"
 
 const Transformers = [
 
-
-
   {
     key: "removeDuplicateLines",
     text: `Remove duplicate lines`,
     descr: `This removes duplicate lines from your text. For example, if you have
-    the line "John Mayer" twice in your text, the second line will be removed.
+    the line "Richard James" twice in your text, the second line will be removed.
     The lines don't have to be consecutive.`,
     slots: [
       {
