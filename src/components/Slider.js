@@ -15,6 +15,8 @@ import dataSlice from "../app/reducers/dataslice"
 
 import { useSelector } from 'react-redux'
 
+import Transformers from '../Transformers'
+
 function Slider(props) {
   /*
     #######
@@ -33,14 +35,23 @@ function Slider(props) {
     
   */
 
-
   const appState = useSelector(state => state.main)
 
   const dispatch = useDispatch()
 
   function clickGoButton() {
-    //test dispatch:
-    dispatch( dataSlice.action.testFunction({newValue: "new value"}) )
+    //test dispatch: dispatch( dataSlice.action.testFunction({newValue: "new value"}) )
+    //dispatch: dispatch( dataSlice.action.testFunction({newValue: "new value"}) )
+    const text = appState.inputField
+    //selected transformer
+    const selectedTransformer = Transformers[state]
+    const func = selectedTransformer.do
+    const optionDataObj = appState.options[selectedTransformer.key]
+    const result = func(text, optionDataObj)
+    if (!result || !result.result) throw new Error(`${selectedTransformer.key}: do function did not return a result`)
+    dispatch( dataSlice.action.setInputFieldValue({
+      newValue: result.result,
+    }))
   }
   
   const [state, setState] = useState(0) //0 = select first entry on app start
@@ -69,7 +80,6 @@ function Slider(props) {
           {listItems}
       </div>
       <div className="inline-block mt-2">
-        {appState.testField}
         <ActionButton click={() => clickGoButton()} text={"Transform text!"} ></ActionButton>
       </div>
       <div className="bg-gray-50 p-3 m-1 mt-3 rounded-md

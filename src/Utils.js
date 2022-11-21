@@ -196,6 +196,9 @@ const Utils = {
 
 
   linesToString: (lines, joinWith = " ") => {
+    if (!lines) {
+      throw new Error(`linesToString: no valid lines`)
+    }
     return lines.join(joinWith)
   },
 
@@ -204,7 +207,6 @@ const Utils = {
     return str.split(separator)
   },
 
-
   removeDuplicateLines: (lines, caseInsensitive = true, trimmedMatch = true,
       duplicateWhiteSpaceCollapseMatch = true) => {
     const hash = new Set()
@@ -212,6 +214,7 @@ const Utils = {
       removed: [],
     }
     lines = lines.filter( (line, index) => {
+      console.log(hash, line)
       if (caseInsensitive) {
         line = line.toLowerCase()
       }
@@ -219,7 +222,7 @@ const Utils = {
         line = line.trim()
       }
       if (duplicateWhiteSpaceCollapseMatch) {
-        line = Utils.collapseDuplicateWhiteSpaceIntoOneSingleSpace(line)
+        //line = Utils.collapseDuplicateWhiteSpaceIntoOneSingleSpace(line) //buggy. fix
       }
       if ( hash.has(line) ) {
         info.removed.push({
@@ -228,6 +231,7 @@ const Utils = {
         })
         return false
       }
+      
       hash.add(line)
       return true
     })

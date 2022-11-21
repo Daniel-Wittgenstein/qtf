@@ -35,15 +35,16 @@ const Transformers = [
     ],
     do: (str, data) => {
       const lines = Utils.stringToLines(str)
-      const newLines = Utils.removeDuplicateLines(lines, data.caseInsensitive, data.ignoreWhiteSpace,
+      const result = Utils.removeDuplicateLines(lines, data.caseInsensitive, data.ignoreWhiteSpace,
         data.ignoreWhiteSpace)
-      const newStr = Utils.linesToString(newLines)
+      const newLines = result.lines
+      console.log(21, newLines)
+      const newStr = Utils.linesToString(newLines, "\n")
       return {
         result: newStr,
       }
     },
   },
-
 
   {
     key: "test",
