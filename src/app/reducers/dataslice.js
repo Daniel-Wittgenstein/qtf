@@ -2,17 +2,46 @@
 
 import { createSlice } from '@reduxjs/toolkit'
 
+import Transformers from "../../Transformers.js"
 
 // eslint-disable-next-line no-unused-vars
 const lodash = require('lodash')
 
-
-const initialState = {
+//SETUP INITIAL APP STATE:
+const appState = {
   appName: "Quick Text Fixer",
   testField: "1234567 initial",
+  options: {},
+
+}
+
+appState.options = setOptionsInitialState()
+
+function setOptionsInitialState() {
+  /* Creates data depending on whether checkboxes should be checked or not at the beginning;
+    depends on text effect and option. Retrieved from Transformers data.
+    Unlike the Transformers data, this will be mutable (not really mutable,
+    only mutated via Redux, so still immutable). */
+  const options = {}
+  for ( const key of Object.keys(Transformers) ) {
+    const transformer = Transformers[key]
+    const option = {}
+    options[transformer.key] = option
+    for (const slot of transformer.slots) {
+      const data = {}
+      if (slot.type === "checkbox") {
+        data.checked = slot.checked
+      } else if (slot.type === "input") {
+        data.value = ""
+      }
+      option[slot.key] = data
+    }
+  }
+  return options
 }
 
 
+//DEFINE THE REDUCERS:
 const theReducers = {
 
   testFunction(state, action) {
@@ -24,9 +53,11 @@ const theReducers = {
 }
 
 
+
+//AND FINALLY, SETUP THE REST:
 const dataSlice = createSlice({
   name: 'data',
-  initialState: initialState,
+  initialState: appState,
   reducers: theReducers,
 })
 
