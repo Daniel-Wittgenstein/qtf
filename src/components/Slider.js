@@ -18,6 +18,7 @@ function Slider(props) {
         text: string: button text,
         tooltip: string: tooltip text
         key: string: unique id
+        ...
       }
     #######
     props.click: function: gets called whenever a button is clicked,

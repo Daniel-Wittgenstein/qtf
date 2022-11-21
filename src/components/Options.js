@@ -10,11 +10,16 @@ function Options(props) {
     {
       text: string: short text
       type: string: "input" or "checkbox"
-      checked: boolean (only for checkbox)
+      checked: boolean (only for checkbox) -> whether it should be checked at app start,
+        after that the state is handled by this component
       descr: string: description
       key: unique id
     }
   */
+
+  function onCheckboxChange(item, index) {
+    console.log(item, index)
+  }
   
   const listItems = props.list.map( (item, index) => {
       let optionsEntry
@@ -24,7 +29,8 @@ function Options(props) {
         )
       } else if (item.type === "checkbox") {
         optionsEntry = (
-          <OptionsCheckbox text={item.text} descr={item.descr} checked={item.checked}></OptionsCheckbox>
+          <OptionsCheckbox text={item.text} descr={item.descr} checked={item.checked}
+            onChangeCallback={ () => onCheckboxChange(item, index)}></OptionsCheckbox>
         )
       }
       return (
