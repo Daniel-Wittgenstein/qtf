@@ -13,11 +13,11 @@ function SideBar(props) {
     <div className="mb-2 font-bold text-gray-600">
       {appState.sideBar.title}:
     </div>
-    <div className={"display-linebreak mb-4 " + boxStyle}>
+    <div className={"display-linebreak mb-6 " + boxStyle}>
        {appState.sideBar.text1}
     </div>
     <div className="mb-4 flex justify-center">
-      <img className={"w-10 "+ boxStyle} src={arrow} alt="Arrow" />
+      <img className={"w-4"} src={arrow} alt="Arrow" />
     </div>
     <div className={"display-linebreak " + boxStyle}>
       {appState.sideBar.text2}
