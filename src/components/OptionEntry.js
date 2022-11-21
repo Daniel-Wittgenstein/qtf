@@ -57,7 +57,7 @@ function OptionEntry(props) {
   } else if (props.type === TEXT) {
     const val = appState.options[props.entryId][props.selfId]
     innerElement = (
-      <input className="border-sky-800 border-2 rounded-sm"
+      <input className="border-sky-800 border-2 rounded-sm px-1"
       value={val}
       type="textarea" onChange={onChange}></input>
     )

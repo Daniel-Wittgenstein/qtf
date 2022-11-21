@@ -48,10 +48,40 @@ Rolling Stones`,
     },
   },
 
+
+  {
+    key: "prefix",
+    text: `prefix`,
+    descr: `Add a prefix to each line.`,
+    example: `Han Solo
+Luke Skywalker
+Leia Organa`,
+    slots: [
+      {
+        text: "prefix",
+        type: "input",
+        descr: ``,
+        key: "prefix",
+        checked: true,
+      }
+    ],
+    do: (str, data) => {
+      const lines = Utils.stringToLines(str)
+      const newLines = Utils.prefixLines(lines, data.prefix)
+      const newStr = Utils.linesToString(newLines, "\n")
+      return {
+        result: newStr,
+      }
+    },
+  },
+
+
+
   {
     key: "test",
     text: `Just a test`,
     descr: `Some description ....`,
+    example: ``,
     slots: [
       {
         text: "Match all cases",
@@ -74,6 +104,8 @@ Rolling Stones`,
       }
     },
   },
+
+
 
 
 ]
