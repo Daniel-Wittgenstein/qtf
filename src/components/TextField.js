@@ -12,6 +12,9 @@ function TextField(props) {
 
   //const [state, setState] = useState('')
 
+  const demoText = `Welcome to Quick Text Fixer!\nEnter your text here!`
+    
+
   const appState = useSelector(state => state.main)
 
   const dispatch = useDispatch()
@@ -25,8 +28,9 @@ function TextField(props) {
   return (
     <div>
       <textarea spellCheck="false" className="border-2 border-sky-900 rounded-md resize-none
-        w-[100%] mt-2 p-2 text-gray-700 h-60"
+        w-[100%] mt-2 p-2 text-gray-900 h-60"
         value={val}
+        placeholder={demoText}
         onChange={handleChange}
       />
     </div>

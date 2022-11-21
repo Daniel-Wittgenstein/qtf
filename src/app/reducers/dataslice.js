@@ -7,9 +7,6 @@ import Transformers from "../../Transformers.js"
 // eslint-disable-next-line no-unused-vars
 const lodash = require('lodash')
 
-const demoText = `Welcome to Quick Text Fixer!
-Enter your text here!`
-
 
 const appSettings = {
   maxUndoStates: 10,
@@ -20,7 +17,7 @@ const appState = {
   appName: "Quick Text Fixer",
   testField: "1234567 initial",
   options: {},
-  inputField: demoText,
+  inputField: "",
   undoPossible: false,
   sideBar: {},
 }
