@@ -27,7 +27,7 @@ Beatles
       {
         text: "Match all cases",
         type: "checkbox",
-        descr: `Check this if you want to not only match "abcd", but also "ABCD", "aBcD", etc. (Recommended)`,
+        descr: `Treat "abcd", "ABCD", "aBcD", etc. the same`,
         key: "caseSensitive",
         checked: true,
       },
@@ -35,7 +35,7 @@ Beatles
       {
         text: "Ignore superfluous whitespace",
         type: "checkbox",
-        descr: `Check this if you want to treat \u00A0\u00A0\u00A0"\u00A0\u00A0some\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0words\u00A0\u00A0"\u00A0\u00A0\u00A0 and\u00A0\u00A0\u00A0"some words" as duplicate lines. (Recommended)`,
+        descr: `Treat \u00A0\u00A0\u00A0"\u00A0\u00A0some\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0words\u00A0\u00A0"\u00A0\u00A0\u00A0 and\u00A0\u00A0\u00A0"some words" the same.`,
         key: "ignoreWhiteSpace",
         checked: true,
       },
@@ -56,7 +56,7 @@ Beatles
   {
     key: "prefix",
     text: `prefix`,
-    descr: `Add text at the beginning of each line.`,
+    descr: `Add text to the beginning of each line.`,
     example: `Han Solo
 Luke Skywalker
 Leia Organa***Name: Han Solo
@@ -123,21 +123,21 @@ Leia Organa (fictional character)`,
       {
         text: "join with",
         type: "input",
-        descr: `Character or characters you want to join the lines with.`,
+        descr: `Join lines with this text.`,
         value: `, `,
         key: "replWith",
       },
       {
         text: "Remove empty lines",
         type: "checkbox",
-        descr: `Check this to also remove empty lines.`,
+        descr: `Also remove empty lines.`,
         key: "removeEmptyLines",
         checked: true,
       },
       {
         text: "Trim lines",
         type: "checkbox",
-        descr: `Check this to also remove whitespace from the beginning and ending of each line.`,
+        descr: `Also remove whitespace from beginning and ending of each line.`,
         key: "trim",
         checked: true,
       },

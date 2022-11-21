@@ -66,16 +66,16 @@ function OptionEntry(props) {
   }
   
   return (
-    <div className = "flex flex-col block">
+    <div className = "flex flex-col block mb-2">
       <div className="">
         <div className="border-0 mr-2 inline-block">{props.text}:</div>
         <div className="border-0 align-baseline mt-1 inline-block
         ">
           {innerElement}
         </div>
-      </div>
-      <div className="text-sm text-gray-700">
-        {props.descr}
+        <div className="text-sm text-gray-700 inline-block ml-3">
+          {props.descr ? "(" + props.descr + ")" : ""}
+        </div>
       </div>
     </div>
   )
