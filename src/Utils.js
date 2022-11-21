@@ -13,6 +13,10 @@ const Utils = {
     return lines.map(line => line + prefix)
   },
 
+  replaceLineBreaks: (str, withStr) => {
+    return str.replaceAll("\n", withStr)
+  },
+
   removeLineBreaks: (str) => {
     return str.replaceAll("\n", "")
   },

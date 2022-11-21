@@ -7,6 +7,22 @@ import Transformers from "../../Transformers.js"
 // eslint-disable-next-line no-unused-vars
 const lodash = require('lodash')
 
+let initialValue = ""
+
+//just for testing:
+initialValue = `
+  123
+  456
+  789
+
+
+  abc
+  def
+  ghi
+
+  @@@
+  @@@
+`
 
 const appSettings = {
   maxUndoStates: 10,
@@ -17,7 +33,7 @@ const appState = {
   appName: "Quick Text Fixer",
   testField: "1234567 initial",
   options: {},
-  inputField: "",
+  inputField: initialValue,
   undoPossible: false,
   sideBar: {},
 }

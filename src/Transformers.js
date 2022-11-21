@@ -12,7 +12,7 @@ const Transformers = [
 
   {
     key: "removeDuplicateLines",
-    text: `Remove duplicate lines`,
+    text: `remove duplicate lines`,
     descr: `This removes duplicate lines from your text.`,
     example: `Rolling Stones
 Led Zeppelin
@@ -56,10 +56,12 @@ Beatles
   {
     key: "prefix",
     text: `prefix`,
-    descr: `Add a prefix to each line.`,
+    descr: `Add text at the beginning of each line.`,
     example: `Han Solo
 Luke Skywalker
-Leia Organa`,
+Leia Organa***Name: Han Solo
+Name: Luke Skywalker
+Name: Leia Organa`,
     slots: [
       {
         text: "prefix",
@@ -75,6 +77,79 @@ Leia Organa`,
       const newStr = Utils.linesToString(newLines, "\n")
       return {
         result: newStr,
+      }
+    },
+  },
+
+
+  {
+    key: "suffix",
+    text: `suffix`,
+    descr: `Add text at the end of each line.`,
+    example: `Han Solo
+Luke Skywalker
+Leia Organa***Han Solo (fictional character)
+Luke Skywalker (fictional character)
+Leia Organa (fictional character)`,
+    slots: [
+      {
+        text: "suffix",
+        type: "input",
+        descr: ``,
+        key: "suffix",
+        checked: true,
+      }
+    ],
+    do: (str, data) => {
+      const lines = Utils.stringToLines(str)
+      const newLines = Utils.suffixLines(lines, data.suffix)
+      const newStr = Utils.linesToString(newLines, "\n")
+      return {
+        result: newStr,
+      }
+    },
+  },
+
+  {
+    key: "joinLines",
+    text: `join lines`,
+    descr: `Joins all lines into one line.`,
+    example: `Han Solo
+Luke Skywalker
+Leia Organa***Han Solo (fictional character)
+Luke Skywalker (fictional character)
+Leia Organa (fictional character)`,
+    slots: [
+      {
+        text: "join with",
+        type: "input",
+        descr: `Character or characters you want to join the lines with.`,
+        value: `, `,
+        key: "replWith",
+      },
+      {
+        text: "Remove empty lines",
+        type: "checkbox",
+        descr: `Check this to also remove empty lines.`,
+        key: "removeEmptyLines",
+        checked: true,
+      },
+      {
+        text: "Trim lines",
+        type: "checkbox",
+        descr: `Check this to also remove whitespace from the beginning and ending of each line.`,
+        key: "trim",
+        checked: true,
+      },
+    ],
+    do: (str, data) => {
+      let x = Utils.stringToLines(str)
+      if (data.removeEmptyLines) x = Utils.removeEmptyLines(x)
+      if (data.trim) x = Utils.removeWhiteSpacesBothSides(x)
+      x = Utils.linesToString(x, data.replWith)
+
+      return {
+        result: x,
       }
     },
   },
