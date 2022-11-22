@@ -11,31 +11,6 @@ function App() {
   app-critical.
   */
 
-  /*
-  const sliderList = [
-    {
-      text: "add prefix / suffix",
-      tooltip: "tooltip 1",
-      key: "id1",
-    },
-    {
-      text: "remove duplicate lines",
-      tooltip: "tooltip 2",
-      key: "id2",
-    },
-    {
-      text: "collapse duplicate lines",
-      tooltip: "tooltip 3",
-      key: "id3",
-    },
-    {
-      text: "remove duplicate whitespace (smart)",
-      tooltip: "tooltip 4",
-      key: "id4",
-    },
-  ]
-  */
-
   const sliderList = Transformers
 
   const sliderClick = (index) => {
