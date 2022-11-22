@@ -77,8 +77,12 @@ function Slider(props) {
     }) )
   }
 
-  const standardStyle = `p-3 bg-white   text-sky-800 m-1 hover:bg-gray-700 hover:text-gray-50`
-  const selectedStyle = `p-3 bg-gray-400 text-white   m-1  cursor-default`
+ /* const standardStyle = `p-3 bg-white   text-sky-800 m-1 hover:bg-gray-700 hover:text-gray-50 rounded-t-lg
+    border-2 border-gray-500`
+  const selectedStyle = `p-3 bg-gray-400 text-white   m-1  cursor-default rounded-t-lg`*/
+
+  const standardStyle = "nice-tab"
+  const selectedStyle = "nice-tab nice-tab-selected"
 
   const listItems = props.list.map( (item, index) => {
       const cl =  index === state ? " " + selectedStyle : standardStyle
@@ -103,12 +107,12 @@ function Slider(props) {
 
   return (
     <div>
-      <div className="p-1 bg-gray-200 w-[100%] max-h-40 overflow-auto">
+      <div className="p-1 bg-white w-[100%] max-h-40 overflow-auto">
           {listItems}
       </div>
 
-      <div className="bg-gray-50 p-3 m-1 mt-3 rounded-md
-        shadow-sky-200 shadow-md border-sky-200 border-2 text-gray-800">
+      <div className="bg-white p-3 m-1 mt-3 mb-2 rounded-md
+        shadow-md border-2 p-2 rounded-md text-gray-800">
         {selectedItem.descr}
       </div>  
       

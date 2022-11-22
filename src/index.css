@@ -52,3 +52,27 @@ code {
 }
 
 
+.nice-tab {
+  margin: 0 8px 10px 0;
+	border: 1px solid #DAE0E8;
+  background: #F9F9F9;
+	border-radius: 8px 8px 0 0;
+  height: 45px;
+  padding: 10px;
+}
+
+.nice-tab:hover {
+  background: #efefef;
+}
+
+.nice-tab-selected {
+	border: 1px solid #494949;
+  background: #525252;
+  cursor: default;
+  color: #DDD;
+}
+
+
+.nice-tab-selected:hover {
+  background: #525252;
+}
