@@ -315,8 +315,8 @@ Return to Oz`,
         x = Utils.removeWhiteSpacesBothSides(x)
       }
       x = x.sort( (a, b) => {
-        a = a.trim()
-        b = b.trim()
+        a = a.trim().toLowerCase()
+        b = b.trim().toLowerCase()
         let result = (a > b)
         if (data.reversed) result = !result
         return result 
