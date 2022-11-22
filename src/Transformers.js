@@ -155,10 +155,9 @@ Woolfe***Austen, Shelley, Woolfe`,
 
   {
     key: "splitLine",
-    text: `split line`,
+    text: `split into lines`,
     descr: `Splits text into several lines.`,
-    example: `Austen, Shelley, Woolfe***
-Austen
+    example: `Austen, Shelley, Woolfe***Austen
 Shelley
 Woolfe`,
     slots: [
@@ -235,7 +234,6 @@ Return to Oz`,
         text: "beginning",
         type: "checkbox",
         descr: `Remove spaces at beginning of line.`,
-        value: `, `,
         key: "begin",
         checked: true,
       },
@@ -243,7 +241,6 @@ Return to Oz`,
         text: "ending",
         type: "checkbox",
         descr: `Remove spaces at ending of line.`,
-        value: `, `,
         key: "end",
         checked: true,
       },
@@ -273,6 +270,64 @@ Return to Oz`,
       }
     },
   },
+
+
+  {
+    key: "sort",
+    text: `sort`,
+    descr: `Sort lines alphabetically.`,
+    example: `Bear
+    Dog
+    Cat
+    Ant***Ant
+    Bear
+    Cat
+    Dog`,
+    slots: [
+      {
+        text: "reversed",
+        type: "checkbox",
+        descr: `Z to A`,
+        key: "reversed",
+        checked: false,
+      },
+      {
+        text: "remove empty lines",
+        type: "checkbox",
+        descr: ``,
+        key: "removeEmptyLines",
+        checked: false,
+      },
+      {
+        text: "trim lines",
+        type: "checkbox",
+        descr: `Remove leading and trailing spaces`,
+        key: "trimLines",
+        checked: false,
+      },
+    ],
+    do: (str, data) => {
+      let x = Utils.stringToLines(str)
+      if (data.removeEmptyLines) {
+        x = Utils.removeEmptyLines(x)
+      }
+      if (data.trimLines) {
+        x = Utils.removeWhiteSpacesBothSides(x)
+      }
+      x = x.sort( (a, b) => {
+        a = a.trim()
+        b = b.trim()
+        let result = (a > b)
+        if (data.reversed) result = !result
+        return result 
+      })
+      x = Utils.linesToString(x, "\n")
+      return {
+        result: x,
+      }
+    },
+  },
+
 
 
 
