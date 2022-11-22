@@ -42,27 +42,6 @@ function App() {
     //console.log("clicked index button:", index)
   }
 
-  const optionsList = [
-    {
-      type: "input",
-      text: "1234567",
-      key: "id1",
-      descr: `This option does rtoo.`
-    },
-    {
-      type: "input",
-      text: "abcd1234567",
-      key: "id2",
-      descr: `This option does someting.`
-    },
-    {
-      type: "checkbox",
-      text: "121221",
-      key: "id3",
-      descr: `This option does someting.`
-    },
-  ]
-
   return (
     <div className="h-[100vh]">
       <div className="flex flex-col h-[100%] max-w-[1600px] custom-class-main-wrapper">
