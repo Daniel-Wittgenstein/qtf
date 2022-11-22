@@ -107,23 +107,26 @@ function Slider(props) {
 
   return (
     <div>
-      <div className="p-1 bg-white w-[100%] max-h-40 overflow-auto">
+      <div className="p-1 pb-0 w-[100%] max-h-40 overflow-auto bg-sky-400 rounded-br-2xl">
           {listItems}
       </div>
 
-      <div className="bg-white p-3 m-1 mt-3 mb-2 rounded-md
-        shadow-md border-2 p-2 rounded-md text-gray-800">
-        {selectedItem.descr}
-      </div>  
-      
-      <div className="inline-block mt-2">
-        <ActionButton click={() => clickGoButton()} text={goText} ></ActionButton>
-        {undoButton}
-      </div>    
-      
-      <div className="block">
-        <Options list={selectedItem.slots} entryId={selectedItem.key}></Options>
+      <div className="pl-4">
+        <div className="bg-white p-3 m-1 mt-4 mb-3 rounded-md
+          shadow-md border-2 p-2 rounded-md text-gray-800">
+          {selectedItem.descr}
+        </div>  
+        
+        <div className="inline-block mt-2">
+          <ActionButton click={() => clickGoButton()} text={goText} ></ActionButton>
+          {undoButton}
+        </div>    
+        
+        <div className="block">
+          <Options list={selectedItem.slots} entryId={selectedItem.key}></Options>
+        </div>
       </div>
+
     </div>
   )
 

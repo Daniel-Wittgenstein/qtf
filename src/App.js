@@ -73,7 +73,7 @@ function App() {
 
         <div className="flex justify-between grow">
 
-          <div className="p-4 custom-class-main-column">
+          <div className="p-0 pt-0 custom-class-main-column bg-white">
             <Slider list={sliderList} click={sliderClick}></Slider>
             <TextField></TextField>
           </div>
