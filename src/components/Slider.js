@@ -94,6 +94,7 @@ function Slider(props) {
 
   const undoButton = undoEnabled? (<ActionButton click={() => clickUndoButton()} text={"undo"} ></ActionButton>) : null
 
+  const goText = selectedItem.text + "!"
 
   //call only once on mount:
   useEffect(() => {
@@ -112,7 +113,7 @@ function Slider(props) {
       </div>  
       
       <div className="inline-block mt-2">
-        <ActionButton click={() => clickGoButton()} text={"Transform text!"} ></ActionButton>
+        <ActionButton click={() => clickGoButton()} text={goText} ></ActionButton>
         {undoButton}
       </div>    
       

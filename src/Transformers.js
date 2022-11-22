@@ -55,7 +55,7 @@ Beatles
 
   {
     key: "prefix",
-    text: `prefix`,
+    text: `prefix lines`,
     descr: `Add text to the beginning of each line.`,
     example: `Han Solo
 Luke Skywalker
@@ -84,7 +84,7 @@ Name: Leia Organa`,
 
   {
     key: "suffix",
-    text: `suffix`,
+    text: `suffix lines`,
     descr: `Add text at the end of each line.`,
     example: `Han Solo
 Luke Skywalker
