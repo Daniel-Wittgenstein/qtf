@@ -178,6 +178,28 @@ Woolfe`,
   },
 
 
+  {
+    key: "removeEmptyLines",
+    text: `remove empty lines`,
+    descr: `Remove empty lines.`,
+    example: `Paris
+    
+
+    Texas***Paris
+Texas`,
+    slots: [
+    ],
+    do: (str, data) => {
+      let x = Utils.stringToLines(str)
+      x = Utils.removeEmptyLines(x)
+      x = Utils.linesToString(x, "\n")
+      return {
+        result: x,
+      }
+    },
+  },
+
+
 
   {
     key: "test",
