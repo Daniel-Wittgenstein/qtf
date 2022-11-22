@@ -181,7 +181,7 @@ Woolfe`,
   {
     key: "removeEmptyLines",
     text: `remove empty lines`,
-    descr: `Remove empty lines.`,
+    descr: `Removes all empty lines.`,
     example: `Paris
     
 
@@ -192,6 +192,29 @@ Texas`,
     do: (str, data) => {
       let x = Utils.stringToLines(str)
       x = Utils.removeEmptyLines(x)
+      x = Utils.linesToString(x, "\n")
+      return {
+        result: x,
+      }
+    },
+  },
+
+
+  {
+    key: "collapseEmptyLines",
+    text: `collapse empty lines`,
+    descr: `Collapses multiple empty lines into a single empty line.`,
+    example: `Paris
+    
+
+    Texas***Paris
+
+  Texas`,
+    slots: [
+    ],
+    do: (str, data) => {
+      let x = Utils.stringToLines(str)
+      x = Utils.collapseDuplicateEmptyLineIntoOne(x)
       x = Utils.linesToString(x, "\n")
       return {
         result: x,
