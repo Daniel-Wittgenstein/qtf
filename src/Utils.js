@@ -54,7 +54,7 @@ const Utils = {
     */
     let nuStr = ""
     let prevMatch = false
-    for (let char of nuStr) {
+    for (let char of str) {
       if ( matchFunc(char) ) {
         if (!prevMatch) {
           nuStr += target
