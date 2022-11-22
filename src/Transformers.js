@@ -223,6 +223,43 @@ Texas`,
   },
 
 
+  {
+    key: "trimLines",
+    text: `trim lines`,
+    descr: `Removes whitespace (spaces, tabs, etc.) from the beginning or end of each line.`,
+    example: `      \u00A0\u00A0\u00A0\u00A0The Wizard of Oz    \u00A0\u00A0\u00A0\u00A0
+    \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Return to Oz     ***The Wizard of Oz
+Return to Oz`,
+    slots: [
+      {
+        text: "beginning",
+        type: "checkbox",
+        descr: `Remove spaces at beginning of line.`,
+        value: `, `,
+        key: "begin",
+        checked: true,
+      },
+      {
+        text: "ending",
+        type: "checkbox",
+        descr: `Remove spaces at ending of line.`,
+        value: `, `,
+        key: "end",
+        checked: true,
+      },
+    ],
+    do: (str, data) => {
+      let x = Utils.stringToLines(str)
+      if (data.end) x = Utils.removeTrailingWhiteSpaces(x)
+      if (data.begin) x = Utils.removeLeadingWhiteSpaces(x)
+      x = Utils.linesToString(x, "\n")
+      return {
+        result: x,
+      }
+    },
+  },
+
+
 
   {
     key: "test",
