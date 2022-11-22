@@ -78,7 +78,7 @@ function Slider(props) {
   }
 
   const standardStyle = `p-3 bg-white   text-sky-800 m-1 hover:bg-gray-700 hover:text-gray-50`
-  const selectedStyle = `p-3 bg-sky-600 text-white   m-1 hover:bg-sky-800 hover: text-gray-100`
+  const selectedStyle = `p-3 bg-gray-400 text-white   m-1  cursor-default`
 
   const listItems = props.list.map( (item, index) => {
       const cl =  index === state ? " " + selectedStyle : standardStyle
