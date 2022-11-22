@@ -276,36 +276,6 @@ Return to Oz`,
 
 
 
- // collapseDuplicateWhiteSpaceIntoOneSingleSpace
-
-
-  {
-    key: "test",
-    text: `Just a test`,
-    descr: `Some description ....`,
-    example: ``,
-    slots: [
-      {
-        text: "Match all cases",
-        type: "checkbox",
-        descr: `Check this if you want to not only match "abcd", but also "ABCD", "aBcD", etc.`,
-        key: "caseSensitive",
-        checked: true,
-      },
-      {
-        text: "some text",
-        type: "input",
-        descr: `Describe this input field`,
-        key: "someIdKey",
-        checked: false,
-      },
-    ],
-    do: (str, data) => {
-      return {
-        result: str.toUpperCase()
-      }
-    },
-  },
 
 
 
