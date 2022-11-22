@@ -114,11 +114,9 @@ Leia Organa (fictional character)`,
     key: "joinLines",
     text: `join lines`,
     descr: `Joins all lines into one line.`,
-    example: `Han Solo
-Luke Skywalker
-Leia Organa***Han Solo (fictional character)
-Luke Skywalker (fictional character)
-Leia Organa (fictional character)`,
+    example: `Austen
+Shelley
+Woolfe***Austen, Shelley, Woolfe`,
     slots: [
       {
         text: "join with",
@@ -150,6 +148,31 @@ Leia Organa (fictional character)`,
 
       return {
         result: x,
+      }
+    },
+  },
+
+
+  {
+    key: "splitLine",
+    text: `split line`,
+    descr: `Splits text into several lines.`,
+    example: `Austen, Shelley, Woolfe***
+Austen
+Shelley
+Woolfe`,
+    slots: [
+      {
+        text: "split at",
+        type: "input",
+        descr: `Split lines at this text.`,
+        value: `, `,
+        key: "splitAt",
+      },
+    ],
+    do: (str, data) => {
+      return {
+        result: str.replaceAll(data.splitAt, "\n"),
       }
     },
   },
