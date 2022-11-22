@@ -19,7 +19,7 @@ function SideBar(props) {
        {appState.sideBar.text1}
     </div>
     <div className="mb-4 flex justify-center">
-      <img className={"w-4 animate-bounce limit-animation-count"} src={arrow} alt="Arrow" />
+      <img className={"w-4 animate-bounce"} src={arrow} alt="Arrow" />
     </div>
     <div className={"display-linebreak" + " " + boxStyle}>
       {appState.sideBar.text2}
