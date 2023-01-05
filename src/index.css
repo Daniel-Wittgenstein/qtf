@@ -78,3 +78,31 @@ code {
 .nice-tab-selected:hover {
   background: #525252;
 }
+
+.pop-up-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #CCCC;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 90000;
+}
+
+.pop-up {
+  width: 95vw;
+  max-width: 560px;
+  border: 0px solid black;
+  background: white;
+  box-shadow: 10px 10px 8px #888888;
+  border-radius: 4px;
+}
+
+
+li{
+  margin: 12px 0;
+}

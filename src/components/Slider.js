@@ -6,6 +6,7 @@
 import { useState } from 'react';
 import Options from './Options.js'
 import ActionButton from './ActionButton.js'
+import PopUp from './PopUp.js'
 
 import { useEffect } from "react";
 
@@ -100,6 +101,23 @@ function Slider(props) {
 
   const goText = selectedItem.text + "!"
 
+  const popUpText = (
+    <>
+      <ul className="list-disc text-gray-700">
+        <li>Quick Text Fixer is a tool that lets you fix your texts. Remove
+          duplicate lines, sort lines alphabetically, remove duplicate spaces etc.</li>
+        <li>Runs entirely client-side.</li>
+        <li>Built with React, Redux and Tailwind.css</li>
+        <li>Just click on the blue button "remove duplicate lines!" to see it in action.</li>
+        <li>Have fun!</li>
+        <li>© Daniel Ott 2023</li>    
+      </ul>
+    </>
+  )
+
+
+  const popUpButtonText = "okay"
+
   //call only once on mount:
   useEffect(() => {
     clickButton(0)
@@ -107,27 +125,31 @@ function Slider(props) {
 
   return (
     <div>
-      <div className="p-1 pb-0 w-[100%] max-h-40 overflow-auto bg-sky-400
-        rounded-br-2xl select-none pb-2">
-          {listItems}
-      </div>
-
-      <div className="pl-4">
-        <div className="bg-white p-3 m-1 mt-4 mb-3 rounded-md
-          shadow-md border-2 p-2 rounded-md text-gray-800">
-          {selectedItem.descr}
-        </div>  
-        
-        <div className="inline-block mt-2">
-          <ActionButton click={() => clickGoButton()} text={goText} ></ActionButton>
-          {undoButton}
-        </div>    
-        
-        <div className="block">
-          <Options list={selectedItem.slots} entryId={selectedItem.key}></Options>
+      <div>
+        <div className="p-1 pb-0 w-[100%] max-h-40 overflow-auto bg-sky-400
+          rounded-br-2xl select-none pb-2">
+            {listItems}
         </div>
+
+        <div className="pl-4">
+          <div className="bg-white p-3 m-1 mt-4 mb-3 rounded-md
+            shadow-md border-2 p-2 rounded-md text-gray-800">
+            {selectedItem.descr}
+          </div>  
+          
+          <div className="inline-block mt-2">
+            <ActionButton click={() => clickGoButton()} text={goText} ></ActionButton>
+            {undoButton}
+          </div>    
+          
+          <div className="block">
+            <Options list={selectedItem.slots} entryId={selectedItem.key}></Options>
+          </div>
+        </div>
+
       </div>
 
+      <PopUp text={popUpText} buttonText={popUpButtonText}></PopUp>
     </div>
   )
 
