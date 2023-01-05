@@ -108,7 +108,7 @@ function Slider(props) {
   return (
     <div>
       <div className="p-1 pb-0 w-[100%] max-h-40 overflow-auto bg-sky-400
-        rounded-br-2xl select-none">
+        rounded-br-2xl select-none pb-2">
           {listItems}
       </div>
 
