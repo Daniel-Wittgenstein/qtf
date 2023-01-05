@@ -25,7 +25,7 @@ function App() {
           QUICK TEXT FIXER
         </div>
 
-        <div className="flex justify-between grow">
+        <div className="flex justify-between grow bg-white">
 
           <div className="p-0 pt-0 custom-class-main-column bg-white">
             <Slider list={sliderList} click={sliderClick}></Slider>
