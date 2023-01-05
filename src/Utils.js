@@ -21,18 +21,7 @@ const Utils = {
     return str.replaceAll("\n", "")
   },
 
-  removeLineBreaksSmart: (str) => {
-    str = str.replaceAll("\n", " ")
-    return Utils.collapseDuplicateWhiteSpaceIntoOneSingleSpace(str)
-  },
 
-  collapseDuplicateWhiteSpaceIntoOneSingleSpace: (str) => {
-    return Utils.collapseDuplicateCharsIntoOneTargetChar(
-      str,
-      (char) => char.trim() === "" && char !== "\n", //match every whitespace except line breaks
-      " "
-    )
-  },
 
   collapseDuplicateSpacesIntoOneSingleSpace: (str) => {
     return Utils.collapseDuplicateCharsIntoOneTargetChar(
@@ -223,9 +212,6 @@ const Utils = {
       }
       if (trimmedMatch) {
         line = line.trim()
-      }
-      if (duplicateWhiteSpaceCollapseMatch) {
-        //line = Utils.collapseDuplicateWhiteSpaceIntoOneSingleSpace(line) //buggy. fix
       }
       if ( hash.has(line) ) {
         info.removed.push({

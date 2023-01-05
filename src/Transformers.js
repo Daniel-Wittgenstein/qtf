@@ -260,13 +260,13 @@ Return to Oz`,
   {
     key: "removeDoubleSpaces",
     text: `remove double spaces`,
-    descr: `Replaces duplicate spaces (and tabs) with one single space.`,
+    descr: `Replaces duplicate spaces with one single space.`,
     example: `The\u00A0\u00A0\u00A0\u00A0Wizard of\u00A0\u00A0\u00A0Oz***The Wizard of Oz`,
     slots: [
     ],
     do: (str, data) => {
       return {
-        result: Utils.collapseDuplicateWhiteSpaceIntoOneSingleSpace(str),
+        result: Utils.collapseDuplicateSpacesIntoOneSingleSpace(str),
       }
     },
   },

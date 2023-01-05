@@ -110,7 +110,7 @@ function Slider(props) {
         <li>Built with React, Redux and Tailwind.css</li>
         <li>Just click on the blue button "remove duplicate lines!" to see it in action.</li>
         <li>Have fun!</li>
-        <li>© Daniel Ott 2023</li>    
+        <li>© Daniel Ott 2023</li>
       </ul>
     </>
   )
