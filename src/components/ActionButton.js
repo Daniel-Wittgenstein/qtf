@@ -9,7 +9,7 @@ function ActionButton(props) {
     ptops.click: function: onClick function
   */
   const style = `p-3 bg-sky-600   text-gray-50 m-1 hover:bg-gray-700 hover:text-gray-50 rounded-sm
-    pt-1 pb-1 inline-block`
+    pt-1 pb-1 inline-block select-none`
 
   return (
     <button
