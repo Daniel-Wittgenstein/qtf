@@ -9,20 +9,12 @@ const lodash = require('lodash')
 
 let initialValue = ""
 
-//just for testing:
-initialValue = `
-  123
-  456
-  789
-
-
-  abc
-  def
-  ghi
-
-  @@@
-  @@@
-`
+//demo:
+initialValue = `Rolling Stones
+Led Zeppelin
+Led Zeppelin
+Beatles
+Rolling Stones`
 
 const appSettings = {
   maxUndoStates: 10,
