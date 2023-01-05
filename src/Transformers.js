@@ -317,11 +317,17 @@ Return to Oz`,
       x = x.sort( (a, b) => {
         a = a.trim().toLowerCase()
         b = b.trim().toLowerCase()
-        let result = (a > b)
-        if (data.reversed) result = !result
+        let result = 0
+        if (a > b) {
+          result = 1
+        } else if (a < b) {
+          result = -1
+        }
+        if (data.reversed) result = result * -1
         return result 
       })
       x = Utils.linesToString(x, "\n")
+      
       return {
         result: x,
       }
