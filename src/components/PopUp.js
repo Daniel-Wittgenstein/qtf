@@ -29,7 +29,7 @@ function PopUp(props) {
     (
       <div className="pop-up-wrapper">
         <div className="pop-up p-6">
-          <div className="p-8 text-gray-800 overflow-scroll max-h-48 bg-gray-200 rounded">
+          <div className="p-8 text-gray-800 overflow-scroll overflow-x-hidden max-h-48 bg-gray-200 rounded">
             {props.text}
           </div>
           <div className="flex content-center justify-center mt-6">
