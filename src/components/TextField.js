@@ -26,7 +26,7 @@ function TextField(props) {
   const val = appState.inputField
 
   return (
-    <div className="ml-4">
+    <div className="ml-4 mr-4">
       <textarea spellCheck="false" className="border-2 border-sky-900 rounded-md resize-none
         w-[100%] mt-2 p-2 text-gray-900 h-60"
         value={val}
